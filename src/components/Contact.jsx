@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Phone, MapPin, Send } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS (you'll need to set this up)
+emailjs.init('uiKBflwh3cL6IR0gm')
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +12,7 @@ const Contact = () => {
     subject: '',
     message: '',
   })
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
@@ -16,20 +21,29 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsLoading(true)
+
+    try {
+      await emailjs.send('service_w452pnd', 'template_wtlbcwd', {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'jasper.yahoo.co@gmail.com',
+      })
+      alert('Thank you! Your message has been sent successfully.')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (error) {
+      console.error('Email error:', error)
+      alert('Failed to send message. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const contactMethods = [
-    {
-      icon: <Mail size={24} />,
-      label: 'Email',
-      value: 'jasper.yahoo.co@gmail.com',
-      href: 'mailto:jasper.yahoo.co@gmail.com',
-    },
     {
       icon: <Phone size={24} />,
       label: 'Phone',
@@ -126,9 +140,9 @@ const Contact = () => {
               />
             </div>
             
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" disabled={isLoading}>
               <Send size={18} />
-              Send Message
+              {isLoading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
