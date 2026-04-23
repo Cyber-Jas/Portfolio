@@ -10,10 +10,10 @@ const About = () => {
   const highlights = [
     'Network Administration',
     'System Configuration',
-    'Cybersecurity',
     'Technical Support',
     'Cloud Solutions',
     'IT Infrastructure',
+    'Database Management',
   ]
 
   return (
@@ -43,7 +43,7 @@ const About = () => {
             <p>
               I'm a dedicated IT Specialist with a passion for technology and problem-solving. 
               With extensive experience in network administration, system management, and 
-              cybersecurity, I help organizations optimize their IT infrastructure and 
+              cloud solutions, I help organizations optimize their IT infrastructure and 
               achieve their technological goals.
             </p>
             <p>

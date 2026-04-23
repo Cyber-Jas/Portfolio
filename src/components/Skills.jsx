@@ -1,4 +1,4 @@
-import { Server, Shield, Network, Cloud, Database, Settings } from 'lucide-react'
+import { Server, Network, Cloud, Database, Settings } from 'lucide-react'
 
 const Skills = () => {
   const skills = [
@@ -13,12 +13,6 @@ const Skills = () => {
       title: 'System Administration',
       description: 'Managing Windows and Linux servers, ensuring uptime, and implementing automation solutions.',
       tags: ['Windows Server', 'Linux', 'Active Directory', 'PowerShell'],
-    },
-    {
-      icon: <Shield size={28} />,
-      title: 'Cybersecurity',
-      description: 'Implementing security measures, conducting vulnerability assessments, and ensuring compliance.',
-      tags: ['Security Audits', 'Penetration Testing', 'SIEM', 'Compliance'],
     },
     {
       icon: <Cloud size={28} />,

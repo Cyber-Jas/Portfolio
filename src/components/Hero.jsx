@@ -14,7 +14,7 @@ const Hero = () => {
             <p>
               Passionate about technology and solving complex problems. 
               I specialize in network administration, system management, 
-              cybersecurity, and providing technical solutions that drive business success.
+              cloud solutions, and providing technical solutions that drive business success.
             </p>
             <div className="hero-buttons">
               <a href="#contact" className="btn btn-primary">
