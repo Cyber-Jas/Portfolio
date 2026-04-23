@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Phone, MapPin, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 // Initialize EmailJS (you'll need to set this up)
@@ -44,6 +44,12 @@ const Contact = () => {
   }
 
   const contactMethods = [
+    {
+      icon: <Mail size={24} />,
+      label: 'Email',
+      value: 'jasper.yahoo.co@gmail.com',
+      href: 'mailto:jasper.yahoo.co@gmail.com',
+    },
     {
       icon: <Phone size={24} />,
       label: 'Phone',
